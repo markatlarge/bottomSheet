@@ -10,8 +10,19 @@ import UIKit
 
 class LandingViewController: UIViewController {
     
+    @IBOutlet weak var textField: UITextField!
+    var text = "new text"
+    
+    @IBAction func button(_ sender: Any) {
+      
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //textField.text = "please work"
         // Do any additional setup after loading the view.
     }
     
@@ -30,6 +41,9 @@ class LandingViewController: UIViewController {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let bottomSheetVC = sb.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController") as! ScrollableBottomSheetViewController
+        
+        bottomSheetVC.text = "work pretty please"
+        
         
         self.addChildViewController(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)

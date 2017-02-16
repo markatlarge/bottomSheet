@@ -12,6 +12,9 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var label: UILabel!
+    
+    var text:String = "old text"
     
     let fullView: CGFloat = 100
     var partialView: CGFloat {
@@ -20,6 +23,9 @@ class ScrollableBottomSheetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        label.text = text
+        
         
         //tableView.delegate = self
         //tableView.dataSource = self
