@@ -77,7 +77,7 @@ class ScrollableBottomSheetViewController: UIViewController {
                 
             }, completion: { [weak self] _ in
                 if ( velocity.y < 0 ) {
-                   // self?.tableView.isScrollEnabled = true
+                self?.tableView.isScrollEnabled = true
                 }
             })
         }
@@ -99,11 +99,11 @@ class ScrollableBottomSheetViewController: UIViewController {
 extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,7 +111,10 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "default")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
+        
+        return cell
+        
     }
 }
 

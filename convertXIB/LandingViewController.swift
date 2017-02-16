@@ -26,7 +26,10 @@ class LandingViewController: UIViewController {
     }
     
     func addBottomSheetView(scrollable: Bool? = true) {
-        let bottomSheetVC = ScrollableBottomSheetViewController()
+       // let bottomSheetVC = ScrollableBottomSheetViewController()
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let bottomSheetVC = sb.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController") as! ScrollableBottomSheetViewController
         
         self.addChildViewController(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
