@@ -13,20 +13,23 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     var text = "new text"
     
-    @IBOutlet weak var blurViewEffect: UIVisualEffectView!
+ 
     
     @IBAction func button(_ sender: Any) {
       
         addBottomSheetView()
         
     }
+    //let blurEffect = UIBlurEffect(style: .dark)
+    var blurredEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // blurViewEffect.effect = nil
-        
-        blurEffectOff()
+  
+       // let blurEffect = UIBlurEffect(style: .dark)
+      //  let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+       
         
         //blurViewEffect.effect = //
         //textField.text = "please work"
@@ -44,13 +47,17 @@ class LandingViewController: UIViewController {
     }
     
     func addBottomSheetView(scrollable: Bool? = true) {
-       // let bottomSheetVC = ScrollableBottomSheetViewController()
+   
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let bottomSheetVC = sb.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController") as! ScrollableBottomSheetViewController
-        
+        print("did press add bottom")
         bottomSheetVC.text = "work pretty please"
         
+         blurEffectOn ()
+        displayContentController(content: bottomSheetVC)
+      
+        /*
         blurEffectOn ()
         self.addChildViewController(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
@@ -60,7 +67,7 @@ class LandingViewController: UIViewController {
         let width  = view.frame.width
         bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
         
-        
+        */
         
        // self.prepareBackgroundView()
     }
@@ -76,14 +83,65 @@ class LandingViewController: UIViewController {
     } */
     
     func blurEffectOn () {
-        let blurEffect = UIBlurEffect(style: .dark)
-        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-        blurredEffectView.frame = self.view.bounds
+
+
+        blurredEffectView.frame = view.bounds
         view.addSubview(blurredEffectView)
     }
     
     func blurEffectOff () {
-        blurViewEffect.removeFromSuperview()
+        
+        print ("did make it to blur effect off")
+        //blurredEffectView.alpha = 0
+        blurredEffectView.isHidden = true
+        blurredEffectView.removeFromSuperview()
+        
+        
+        
+        for subview in blurredEffectView.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+        
+
+        
+    }
+    func displayContentController(content: ScrollableBottomSheetViewController) {
+        
+        print("did mkae it to diplay content ")
+        /*addChildViewController(content)
+        self.view.addSubview(content.view)
+        content.didMove(toParentViewController: self)
+        
+        let height = view.frame.height
+        let width  = view.frame.width
+        content.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height) */
+        
+        addChildViewController(content)
+        view.addSubview(content.view)
+        content.didMove(toParentViewController: self)
+        
+        let height = view.frame.height
+        let width  = view.frame.width
+        content.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        
+    }
+    
+    func hideContentController(content: ScrollableBottomSheetViewController) {
+        print("was hid accessed")
+        
+        
+        
+        if let viewWithTag = content.view.viewWithTag(98) {
+            
+            viewWithTag.removeFromSuperview()
+        }
+        
+        /*
+        content.willMove(toParentViewController: nil)
+        content.view.removeFromSuperview()
+        content.removeFromParentViewController() */
     }
 
 

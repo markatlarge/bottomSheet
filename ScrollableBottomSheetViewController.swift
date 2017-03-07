@@ -16,6 +16,22 @@ class ScrollableBottomSheetViewController: UIViewController {
     
     @IBAction func didTouchRemoveView(_ sender: Any) {
         
+        print("did touch remove")
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let bottomSheetVC = sb.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController") as! ScrollableBottomSheetViewController
+        let landingVC = sb.instantiateViewController(withIdentifier: "LandingViewController") as! LandingViewController
+        
+        if let viewWithTag = self.view.viewWithTag(98) {
+            
+            landingVC.blurEffectOff()
+            
+            viewWithTag.removeFromSuperview()
+        }
+       // landingVC.hideContentController(content: bottomSheetVC)
+        
+        
+        
+        
     }
     
     var text:String = "old text"
