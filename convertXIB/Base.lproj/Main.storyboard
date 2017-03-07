@@ -69,9 +69,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NRH-Ns-Xa2">
-                                <rect key="frame" x="0.0" y="114" width="375" height="533"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NRH-Ns-Xa2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="6s9-Wp-Ly0">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -113,6 +112,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NRH-Ns-Xa2" firstAttribute="leading" secondItem="RND-O2-501" secondAttribute="leading" id="Hbw-ic-enT"/>
+                            <constraint firstAttribute="trailing" secondItem="NRH-Ns-Xa2" secondAttribute="trailing" id="epW-W1-hdi"/>
+                            <constraint firstItem="NRH-Ns-Xa2" firstAttribute="top" secondItem="Iiw-K4-O1v" secondAttribute="bottom" id="ipb-LQ-lVc"/>
+                            <constraint firstItem="EDn-Da-Ntj" firstAttribute="top" secondItem="NRH-Ns-Xa2" secondAttribute="bottom" id="w6m-i0-O1Y"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="headerView" destination="6s9-Wp-Ly0" id="PIp-Fa-if5"/>
