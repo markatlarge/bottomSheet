@@ -14,6 +14,10 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var label: UILabel!
     
+    @IBAction func didTouchRemoveView(_ sender: Any) {
+        
+    }
+    
     var text:String = "old text"
     
     let fullView: CGFloat = 100
